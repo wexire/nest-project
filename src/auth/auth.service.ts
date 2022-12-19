@@ -18,7 +18,7 @@ export class AuthService {
 
       if (!user) throw new ForbiddenException('Credentials incorrect');
 
-      const pwMatch = verify(user.passwordHash, dto.password);
+      const pwMatch = await verify(user.passwordHash, dto.password);
 
       if (!pwMatch) throw new ForbiddenException('Credentials incorrect');
 
